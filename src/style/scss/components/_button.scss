@@ -1,0 +1,84 @@
+@use '../helpers/mixins' as *;
+@use '../helpers/extends' as *;
+
+.btnHalf {
+    &:has(svg) {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+    }
+    text-transform: capitalize;
+    transition: var(--t-s);
+    backdrop-filter: blur(2px);
+    @include res('font-size', 14px, 16px);
+    @include res('padding-block', 8px, 12px);
+    @include res('padding-inline', 12px, 24px);
+    border-radius: 999px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent;
+    &::before {
+        @extend %A_B;
+        @extend %centerX;
+        @include circle(130%);
+        z-index: -1;
+        inset-block: -15% auto;
+        transition: var(--t-l);
+        background-color: var(--white);
+    }
+
+    &:hover {
+        &::before {
+
+            inset-block: auto -15%;
+        }
+    }
+
+    &.Filled {
+        border-color: var(--mainColor);
+        color: var(--mainColor);
+        svg {
+            color: var(--mainColor);
+        }
+        &::before {
+            height: 130%;
+            
+        }
+        &:hover {
+            background-color: var(--inputBG);
+            border-color: var(--inputStroke);
+            color: var(--white);
+            svg{
+                color: var(--white);
+            }
+            &::before {
+                height: 0;
+            }
+        }
+    }
+
+    &.isBorder {
+        // background-color: var(--inputBG);
+        border-color: var(--inputStroke);
+        color: var(--white);
+
+        &::before {
+            background-color: var(--white);
+            height: 0;
+        }
+
+        &:hover {
+            border-color: var(--mainColor);
+            color: var(--mainColor);
+
+            svg {
+                color: var(--mainColor);
+            }
+
+            &::before {
+                height: 130%;
+            }
+        }
+    }
+}

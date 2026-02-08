@@ -1,0 +1,51 @@
+@use './mixins' as *;
+
+body{
+    font-family: 'Expo';
+    background-color: var(--BodyBg);
+    // height: 10000px;
+    position: relative;
+}
+img{
+    height: 100%;
+}
+
+.icon{
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    &.large{
+        width: 28px;
+        height: 28px;
+    }
+    &.small{
+        width: 20px;
+        height: 20px;
+    }
+}
+// class to use 
+
+// ==color==
+.text-white{
+    color: var(--white);
+}
+.text-gray{
+    color: var(--gray);
+}
+
+.text-mainColor{
+    color: var(--mainColor);
+}
+
+// ==fonts==
+.fs-res-96{
+    @include res('font-size', 48px, 96px);
+}
+.fs-res-18{
+    @include res('font-size', 16px, 18px);
+}
+// main{
+//     position: relative;
+// }
+
+

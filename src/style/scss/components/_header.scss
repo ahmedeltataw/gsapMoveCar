@@ -1,0 +1,26 @@
+@use '../helpers/animation' as *;
+
+header {
+    &.scroll {
+        position: fixed;
+        animation: navSticky 500ms ease-in-out;
+
+        nav {
+            background-color: var(--inputBG);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--inputStroke);
+        }
+    }
+    .navLink{
+        transition: var(--t-s);
+        border: 1px solid transparent;
+        padding: 8px 16px;
+        &:hover{
+            border-color: var(--mainColor);
+            background-color: var(--white);
+            color: var(--mainColor)
+        }
+    }
+}
+
+@include nav-sticky(navSticky);

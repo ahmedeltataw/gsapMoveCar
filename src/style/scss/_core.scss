@@ -1,0 +1,13 @@
+// variables
+@use './helpers/fonts';
+@use './helpers/colors';
+
+// components
+@use './components/header';
+@use "./components/button";
+@use "./components/hero";
+@use "./components/about";
+@use "./components/carWarpper";
+// layout
+@use './helpers/layout';
+

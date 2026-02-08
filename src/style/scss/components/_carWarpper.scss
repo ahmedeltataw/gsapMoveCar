@@ -1,0 +1,33 @@
+@use "../helpers/animation" as *;
+
+
+.carWarpper{
+    --TimeSpeed:2s;
+    height: 100svh;
+    // background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: end;
+    // justify-content: end;
+    width: 100%;
+    svg{
+        margin-bottom: -80px;
+        transform: translateX(1500px);
+        #light{
+            opacity: 0;
+        }
+        #backWheal ,#FrontWheal{
+            // animation: carSpin var(--TimeSpeed) linear infinite;
+            // transform-origin: center !important;
+            // transform-box: fill-box !important;
+            // &.stop{
+            //     animation-play-state: paused !important;
+            // }
+            filter: drop-shadow(2px 4px 20px rgba(0, 0, 0, 0.359));
+        }
+    }
+}
+
+@include movingSpin(carSpin);

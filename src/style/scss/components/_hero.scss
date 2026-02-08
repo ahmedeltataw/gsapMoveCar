@@ -1,0 +1,11 @@
+@use '../helpers/mixins' as *;
+.hero{
+    background: url('../../../assets/images/heroBg.webp') no-repeat center center / cover;
+    background-attachment: fixed;
+    height: 100svh;
+    // padding-block-start: 200px;
+    .content{
+        @include Min('width' , 1000px , 100%);
+        height: 100%;
+    }
+}

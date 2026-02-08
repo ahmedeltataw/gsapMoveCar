@@ -1,0 +1,28 @@
+$mainColor: rgba($color: #ddb039, $alpha: 1.0); ;
+$mainColor20: rgba($color: #ddb039, $alpha: 20%); 
+$mainColor08: rgba($color: #ddb039, $alpha: 8%); 
+// $secondColor: rgba($color: #ffcc00, $alpha: 1.0); ;
+// $secondColor20: rgba($color: #ffcc00, $alpha: 20%); 
+// $secondColor08: rgba($color: #ffcc00, $alpha: 8%); 
+$gray:rgba($color: #ffffff, $alpha: 60%); 
+$grayLight:rgba($color: #ffffff, $alpha: 45%); 
+$inputHint:rgba($color: #ffffff, $alpha: 35%); 
+$inputStroke:rgba($color: #ffffff, $alpha: 5%); 
+$inputBG:rgba($color: #ffffff, $alpha: 3%); 
+:root {
+    --mainColor: #{$mainColor};
+    --mainColor20: #{$mainColor20};
+    --mainColor08: #{$mainColor08}; 
+    --white:#F8F9FA;
+    --dark:#1a1a1a;
+    --BodyBg:#0c0c0c;
+    --gray:#{$gray}; 
+    --grayLight:#{$grayLight};
+    --inputHint:#{$inputHint};
+    --inputStroke:#{$inputStroke};
+    --inputBG:#{$inputBG};
+    --bottom-gra:linear-gradient(180deg,rgba(4, 21, 45, 0) 0%,#fcfbfb 95.17%);
+    --bottom-gra2:linear-gradient(180deg,rgba(4, 21, 45, 0) 0%,#201F1D 95.17%);
+    --t-l: 500ms ease-in-out;
+    --t-s: 250ms ease-in-out;
+}
