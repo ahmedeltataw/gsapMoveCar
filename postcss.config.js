@@ -14,7 +14,7 @@ export default {
             safelist: {
               standard: [
                 'html', 'body',
-
+                'pin-spacer',
                 /active$/, /show$/, 
                 /swiper/, /gsap/, /scrolltrigger/
               ],
@@ -22,7 +22,7 @@ export default {
                 /swiper/, /gsap/, /carWarpper/
               ],
               greedy: [
-                /swiper-/, /fa-/ , /.pin-spacer/, /gsap/, /scrolltrigger/
+                /swiper-/, /fa-/ , /pin-spacer/, /gsap/, /scrolltrigger/
               ]
             }
           }),
