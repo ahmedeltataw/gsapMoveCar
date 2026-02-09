@@ -22,7 +22,7 @@ export default {
                 /swiper/, /gsap/, /carWarpper/
               ],
               greedy: [
-                /swiper-/, /fa-/ 
+                /swiper-/, /fa-/ , /.pin-spacer/, /gsap/, /scrolltrigger/
               ]
             }
           }),
