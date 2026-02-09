@@ -5,6 +5,10 @@ body{
     background-color: var(--BodyBg);
     // height: 10000px;
     position: relative;
+    &.stop-scrolling{
+        overflow: hidden;
+        // height: 100svh;
+    }
 }
 img{
     height: 100%;

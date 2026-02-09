@@ -2,9 +2,11 @@
 <html lang="en">
 {{> head title="الرئيسية" }}
 
-<body>
-  {{> header }}
+<body class="stop-scrolling">
 
+  
+  {{> Intro }}
+  {{> header }}
   <main>
     <div class="carWarpper">
       {{> Car }}
@@ -50,6 +52,7 @@
         <div class="imageBox"></div>
       </div>
     </section>
+    
   </main>
   <!-- {{> scripts }} -->
   <!--=======GSAP CDN=======-->

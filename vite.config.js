@@ -24,31 +24,38 @@ function getPagesInput() {
 }
 
 export default defineConfig({
-  root: "src", // مجلد العمل هو src
+  root: "src", 
   base: './',
   css: {
-    transformer: 'postcss', 
-    lightningcss: false,
-    devSourcemap: false // 🚀 ضيف دي عشان تسرع قراءة ملف الـ CSS الكبير
+    // transformer: 'postcss',
+    // lightningcss: false,
+    devSourcemap: false ,
+    // transformer: 'lightningcss',
+    lightningcss: {
+      targets: {
+        browsers: ['> 0.25%, not dead'], // تحديد المتصفحات التي تدعمها
+      },
+    },
   },
   build: {
     outDir: "../dist",
     emptyOutDir: true,
-    sourcemap: false, // خليها true لو عايز تعمل Debug في الـ Production
+    sourcemap: false, 
+    assetsInlineLimit: 0,
+    cssMinify: 'lightningcss',
     rollupOptions: {
       input: getPagesInput(),
       output: {
-        // تنظيم الملفات بـ Hash لضمان أفضل Caching للمستخدم
         assetFileNames: (assetInfo) => {
           const name = assetInfo.name || 'file';
           const extType = name.split('.').pop();
 
           if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp/i.test(extType)) {
-            return `assets/images/[name]-[hash][extname]`;
+            return `images/[name]-[hash][extname]`;
           } else if (/css/i.test(extType)) {
             return `css/[name]-[hash][extname]`;
           } else if (/woff2?|eot|ttf|otf/i.test(extType)) {
-            return `assets/fonts/[name]-[hash][extname]`;
+            return `fonts/[name]-[hash][extname]`;
           }
           return `assets/[name]-[hash][extname]`;
         },
@@ -57,9 +64,9 @@ export default defineConfig({
       },
     },
   },
-  optimizeDeps: {
-    exclude: ['lightningcss'] // 👈 ضيف السطر ده عشان يهرب من المشكلة
-  },
+  // optimizeDeps: {
+  //   exclude: ['lightningcss']
+  // },
   // server: {
   //   watch: {
   //     ignored: ['**/style/css/AE.css'], 
@@ -68,16 +75,18 @@ export default defineConfig({
   plugins: [
 
     ViteImageOptimizer({
-      // ضغط الصور الـ JPG
+
       jpeg: {
-        quality: 75, // توازن ممتاز بين الجودة والمساحة
+        quality: 75,
       },
-      // ضغط الصور الـ PNG (الأهم عندك)
+
       png: {
         quality: 75,
-        compressionLevel: 9, // أقصى مستوى ضغط
+        compressionLevel: 9,
       },
-      // ضغط الـ SVG لو عندك أيقونات
+      webp: {
+        quality: 75,
+      },
       svg: {
         plugins: [
           { name: 'removeViewBox', active: false },
@@ -86,16 +95,16 @@ export default defineConfig({
       },
     }),
 
-    // لتقسيم الـ HTML لمكونات (Header/Footer)
+
     handlebars({
       partialDirectory: path.resolve(__dirname, "src/components"),
     }),
     svgSpritemap({
-      // 1. مكان الأيقونات (تأكد إن المجلد ده موجود)
+
       pattern: 'src/assets/icons/*.svg',
-      // 2. اسم الملف اللي هيطلع
+
       filename: 'assets/icons/sprites.svg',
-      // 3. تنظيف الأيقونات من الألوان القديمة
+
       svgo: {
         plugins: [
           {
@@ -104,12 +113,12 @@ export default defineConfig({
           }
         ]
       },
-      // 4. خيار مهم عشان يسهل عليك الاستخدام
+
       injectSVGOnDev: true,
     }),
   ],
 
-  // إعداد اختياري لسهولة كتابة المسارات (Paths)
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

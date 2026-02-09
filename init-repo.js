@@ -45,7 +45,7 @@ try {
 
   // 5. مرحلة الـ Build (تحويل كود Vite لملفات جاهزة)
   console.log('🏗️ Building project with Vite...');
-  // execSync('npm run build');
+  execSync('npm run build');
 
   // 6. رفع فولدر الـ dist لـ GitHub Pages
   console.log('🚀 Deploying "dist" folder to GitHub Pages...');

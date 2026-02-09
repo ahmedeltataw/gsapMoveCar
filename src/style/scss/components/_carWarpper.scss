@@ -2,7 +2,7 @@
 
 
 .carWarpper{
-    --TimeSpeed:2s;
+   pointer-events: none;
     height: 100svh;
     // background-color: red;
     position: absolute;
@@ -29,5 +29,7 @@
         }
     }
 }
-
+.pin-spacer {
+    pointer-events: none !important;
+}
 @include movingSpin(carSpin);

@@ -1,11 +1,10 @@
-import autoprefixer from "autoprefixer";
-import cssnano from "cssnano";
+// import autoprefixer from "autoprefixer";
+// import cssnano from "cssnano";
 import purgecss from "@fullhuman/postcss-purgecss";
 
 export default {
   plugins: [
-    autoprefixer(),
-    // في Vite، الأفضل نعتمد على التحقق من البيئة لضمان التنظيف وقت الـ Build فقط
+    // autoprefixer(),
     ...(process.env.NODE_ENV === 'production' || process.env.VITE_USER_NODE_ENV === 'production'
       ? [
           (purgecss.default || purgecss)({
@@ -13,7 +12,6 @@ export default {
             defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
 
             safelist: {
-              // 3. هنا بقى "القائمة البيضاء" اللي ممنوع يقرب منها نهائي
               standard: [
                 'html', 'body',
 
@@ -28,9 +26,9 @@ export default {
               ]
             }
           }),
-          cssnano({ 
-            preset: ["default", { discardComments: { removeAll: true } }] 
-          }),
+          // cssnano({ 
+          //   preset: ["default", { discardComments: { removeAll: true } }] 
+          // }),
         ] 
       : []),
   ],
