@@ -31,7 +31,7 @@ function firstAnimations() {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" },onComplete: () => {
             Body.classList.remove('stop-scrolling') ;
             document.querySelector('.intro').style.display = 'none';
-            fristMove(); 
+            // fristMove(); 
         } });
     tl.to(".intro img", {
         y: 0,
@@ -131,8 +131,30 @@ function fristMove() {
 
 }
 
+
+function playVideo(){
+    let Video = document.querySelector('.VideoScroll video');
+
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".VideoScroll",
+            endTrigger: ".About",
+            start: "top +=0%",
+            end: "+=90%",
+            pin: true,
+            scrub: true,
+            markers: true,
+            pinSpacing: true,
+            pointerEvents: "none",
+            
+        }
+        
+    });
+    tl.fromTo(Video, { currentTime: 0 }, { currentTime: Video.duration || 3 });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    firstAnimations()
-    // fristMove()
+    firstAnimations();
+    playVideo();
 })
 
