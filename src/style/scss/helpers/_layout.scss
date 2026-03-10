@@ -33,6 +33,10 @@ img{
 .text-white{
     color: var(--white);
 }
+.text-gray-85{
+    color: var(--white);
+    opacity: 95%;
+}
 .text-gray{
     color: var(--gray);
 }
@@ -45,11 +49,12 @@ img{
 .fs-res-96{
     @include res('font-size', 48px, 96px);
 }
+.fs-res-60{
+    @include res('font-size', 32px, 60px);
+}
 .fs-res-18{
     @include res('font-size', 16px, 18px);
 }
-// main{
-//     position: relative;
-// }
+
 
 

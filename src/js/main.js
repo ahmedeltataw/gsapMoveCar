@@ -51,7 +51,7 @@ function firstAnimations() {
             duration: .2,
         })
         .to(".carWarpper svg", {
-            x: "200px",
+            x: "400px",
             autoAlpha: 1,
             duration: 1.8,
             ease: "back.out(1.7)",
@@ -83,7 +83,7 @@ function fristMove() {
             end: "+=75%",
             pin: '.carWarpper',
             scrub: 1,
-            markers: true,
+            markers: false,
             pinSpacing: false,
             pointerEvents: "none",
             onEnter: () => {
@@ -143,7 +143,7 @@ function playVideo(){
             end: "+=90%",
             pin: true,
             scrub: true,
-            markers: true,
+            markers: false,
             pinSpacing: true,
             pointerEvents: "none",
             
